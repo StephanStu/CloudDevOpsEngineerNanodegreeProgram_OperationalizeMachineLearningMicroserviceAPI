@@ -1,3 +1,4 @@
+# Re-Use base image
 FROM python:3.7.3-stretch
 
 # Working Directory
@@ -9,3 +10,10 @@ COPY . app.py /app/
 # Install packages from requirements.txt
 RUN pip install --upgrade pip &&\
     pip install --trusted-host pypi.python.org -r requirements.txt
+
+# Expose port 80
+EXPOSE 80
+
+# Run app.py at container launch time
+CMD ["python", "app.py"]
+
