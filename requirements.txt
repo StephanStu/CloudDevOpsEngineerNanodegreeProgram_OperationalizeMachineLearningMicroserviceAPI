@@ -1,6 +1,0 @@
-pylint
-flask
-locust
-black
-pytest
-ipython
