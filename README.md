@@ -1,5 +1,7 @@
-# This is a Walk-Through to "Putting a Simple Flask Application in a Docker"
 ![docker-logo](data/docker-logo.png)
+
+
+# This is a Walk-Through to "Putting a Simple Flask Application in a Docker"
 This repository adopts material from Udacity's Cloud DevOps Nanodegree Program to wrap up how
 to containerize a simple Flask application. By _containerize_ I mean "putting it into a Docker-
 Container".
@@ -45,4 +47,6 @@ To run the image locally, i.e. "enter the virtual machine"
 $ docker run -it loadtest bash
 
 Now you are in the container. You can exit the container by _CTRL+D_.
+
+
 ![running_docker_in_AWSCloud9](data/running_docker_in_AWSCloud9.png)
