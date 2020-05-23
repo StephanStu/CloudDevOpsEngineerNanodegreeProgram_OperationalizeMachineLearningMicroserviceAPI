@@ -6,10 +6,10 @@
 # Build image and add a descriptive tag
 docker build --tag=predictor .
 
-# Step 2: 
+# Step 2:
 # List docker images
 docker image ls
 
-# Step 3: 
+# Step 3:
 # Run flask app
-docker run -p 8080:80 predictor
+docker run -p 8000:80 predictor
