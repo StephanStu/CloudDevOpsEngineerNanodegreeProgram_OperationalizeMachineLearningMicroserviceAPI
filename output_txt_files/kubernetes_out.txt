@@ -1,1 +1,55 @@
-<paste log output from Kubernetes-mediated prediction, here>
+(.devops) stephanstudener (master *) my_solution
+$ minikube start
+😄  minikube v1.10.1 auf Darwin 10.15.4
+✨  Automatically selected the hyperkit driver
+👍  Starting control plane node minikube in cluster minikube
+🔥  Creating hyperkit VM (CPUs=2, Memory=2200MB, Disk=20000MB) ...
+🐳  Vorbereiten von Kubernetes v1.18.2 auf Docker 19.03.8...
+🔎  Verifying Kubernetes components...
+🌟  Enabled addons: default-storageclass, storage-provisioner
+🏄  Done! kubectl is now configured to use "minikube"
+
+❗  /usr/local/bin/kubectl is v1.16.6-beta.0, which may be incompatible with Kubernetes v1.18.2.
+💡  You can also use 'minikube kubectl -- get pods' to invoke a matching version
+(.devops) stephanstudener (master *) my_solution
+$ kubectl config view
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority: /Users/stephanstudener/.minikube/ca.crt
+    server: https://192.168.64.4:8443
+  name: minikube
+contexts:
+- context:
+    cluster: minikube
+    user: minikube
+  name: minikube
+current-context: minikube
+kind: Config
+preferences: {}
+users:
+- name: minikube
+  user:
+    client-certificate: /Users/stephanstudener/.minikube/profiles/minikube/client.crt
+    client-key: /Users/stephanstudener/.minikube/profiles/minikube/client.key
+(.devops) stephanstudener (master *) my_solution
+$ ./run_kubernetes.sh
+kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
+deployment.apps/predictor created
+NAME                        READY   STATUS              RESTARTS   AGE
+predictor-9bb888896-7hf7j   0/1     ContainerCreating   0          0s
+(.devops) stephanstudener (master *) my_solution
+$ kubectl get pods
+NAME                        READY   STATUS              RESTARTS   AGE
+predictor-9bb888896-7hf7j   0/1     ContainerCreating   0          28s
+(.devops) stephanstudener (master *) my_solution
+$ kubectl get pods
+NAME                        READY   STATUS    RESTARTS   AGE
+predictor-9bb888896-7hf7j   1/1     Running   0          5m11s
+(.devops) stephanstudener (master *) my_solution
+$ kubectl port-forward deployment/predictor 8000:80
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
+Handling connection for 8000
+Handling connection for 8000
