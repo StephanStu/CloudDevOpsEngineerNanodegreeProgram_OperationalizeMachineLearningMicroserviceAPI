@@ -104,7 +104,7 @@ Then, in your DockerHub-Account, a new repository will be created.
 
 ![docker_repo](data/docker_repo.png)
 
-### Configure Kubernetes to Run Locally
+### Configure Kubernetes to Run on the local Host
 With VirtualBox and minikube installed it is possible to start a local cluster,
 
 `$ minikube start`
