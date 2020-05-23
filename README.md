@@ -23,65 +23,94 @@ The project goal is to operationalize a working, machine learning microservice u
 
 A detailed [project rubric can be found here](https://review.udacity.com/#!/rubrics/2576/view).
 
-## Setup the Environment
-
+## Setting up the Environment
+This section explains how to
 * Create a virtualenv and activate it
 * Run `make install` to install the necessary dependencies
 
-### Running `app.py`
+It is recommended to run this inside Amazon Web Service' Cloud 9.
+If brew is missing on the machine,
 
-1. Standalone:  `python app.py`
-2. Run in Docker:  `./run_docker.sh`
-3. Run in Kubernetes:  `./run_kubernetes.sh`
+`$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
 
-### Kubernetes Steps
+will install the package management tool. Then, hadolint, minikube and virtualbox can be installed on the host.
+The next thing to do is to check out this repository, i.e.
 
-* Setup and Configure Docker locally
-* Setup and Configure Kubernetes locally
-* Create Flask app in Container
-* Run via kubectl
-
-
-## Setting up the Environment & Run the Application _locally_
-It is recommended to run this inside Amazon Web Service' Cloud 9. The first thing to do is to check out this repository, i.e.
-
-$ git clone https://github.com/StephanStu/CloudDevOpsEngineerNanodegreeProgram_OperationalizeMachineLearningMicroserviceAPI.git
+`$ git clone https://github.com/StephanStu/CloudDevOpsEngineerNanodegreeProgram_OperationalizeMachineLearningMicroserviceAPI.git`
 
 Next _cd_ into the created folder and set up a virtual python environment, i.e.
 
-$ python3 -m venv .env
+`$ python3 -m venv .env`
 
 where _.env_ is the name of the folder where the environment resides. The virtual python environment must
 be activated with
 
-$ source .env/bin/activate
+`$ source .env/bin/activate`
 
 Note, that the virtual python environment can be deactivated with the command _deactivate_.
 Now
 
-$ install all
+`$ make install`
 
-will install all necessary packages. After that
+will install all necessary packages.
 
-$ python app.py
+## Running `app.py`
+There are different ways to run the machine learning microservice. Here, we treat the following ones:
+1. Standalone:  `python app.py`
+2. Run in Docker:  `./run_docker.sh`
+3. Run in Kubernetes:  `./run_kubernetes.sh`
+
+### Run the Application _Standalone_
+After setting up a virtual environment,
+
+`$ python app.py`
 
 will run the app. If you are in an Amazon Web Service' Cloud 9 environment, you will be able to see the application at work on port 80.
 
-## Building the Docker Container & Run the Image _locally_
+## Run the Application _in a Docker_
 The Docker image is a "small, singe-purpose virtual machine", that must be build and can be run on a host.
 The file Dockerfile tells Docker how to build that machine. To execute the process,
 
-$ ./run_docker.sh.
+`$ ./run_docker.sh.`
 
 You can see the created image in the list of images by
 
-$ docker image ls
+`$ docker image ls`
 
 To run the image locally & "enter the virtual machine"
 
-$ docker run -it predictor bash
+`$ docker run -it predictor bash`
 
 Now you are in the container. You can exit the container by _CTRL+D_.
 
+In AWS Cloud 9, when bein "inside the virtual machine" a different version of Linux can be discovered. This can be seen in the figure below.
 
 ![running_docker_in_AWSCloud9](data/running_docker_in_AWSCloud9.png)
+
+## Run the Application _in Kubernetes_
+Kubernetes can be regarded as a "nano-cloud" for containerized applications. It helps to run and manage applications at scale.
+Kubernetes draws containers from DockerHub, so the steps to run the application inside a cluster are
+* Upload the Docker Image
+* Configure Kubernetes to Run Locally
+* Deploy with Kubernetes
+* Delete Cluster
+When the dockerfile builds successfully, the application is ready to be commited to the DockerHub.
+### Upload the Docker Image
+To upload the image to docker,
+
+`$ ./upload_docker.sh`
+
+Then, in your DockerHub-Account, a new repository will be created.
+![docker_repo](data/docker_repo.png)
+### Configure Kubernetes to Run Locally
+
+### Deploy with Kubernetes and Save Output Logs
+
+### Delete Cluster
+Now, stop the cluster,
+
+`$ minikube stop`
+
+and delete it from your host,
+
+`$ minikube delete`
