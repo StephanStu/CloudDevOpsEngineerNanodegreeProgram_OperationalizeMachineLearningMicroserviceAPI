@@ -7,7 +7,7 @@
 In this project, the skills acquired in Udacity's Cloud DevOps Engineer Nanodegree Program are applied to operationalize a Machine Learning Microservice API uisng Docker and Kubernetes.
 
 
-![docker-logo](data/docker-logo.png)
+![docker-logo](data/docker-logo.png | width=100)
 
 
 One is given a pre-trained, `sklearn` model that has been trained to predict housing prices in Boston according to several features, such as average rooms in a home and data about highway access, teacher-to-pupil ratios, and so on. More information about the data, which was initially taken from Kaggle, can be obtained from [the data source site](https://www.kaggle.com/c/boston-housing). This project tests displays the ability to operationalize a Python flask app—in a provided file, `app.py`—that serves out predictions (inference) about housing prices through API calls. This project could be extended to any pre-trained machine learning model, such as those for image recognition and data labeling.
@@ -25,6 +25,23 @@ The project goal is to operationalize a working, machine learning microservice u
 
 A detailed [project rubric can be found here](https://review.udacity.com/#!/rubrics/2576/view).
 
+## Setup the Environment
+
+* Create a virtualenv and activate it
+* Run `make install` to install the necessary dependencies
+
+### Running `app.py`
+
+1. Standalone:  `python app.py`
+2. Run in Docker:  `./run_docker.sh`
+3. Run in Kubernetes:  `./run_kubernetes.sh`
+
+### Kubernetes Steps
+
+* Setup and Configure Docker locally
+* Setup and Configure Kubernetes locally
+* Create Flask app in Container
+* Run via kubectl
 
 ## This is a Walk-Through to "Putting a Simple Flask Application in a Docker"
 This repository adopts material from Udacity's Cloud DevOps Nanodegree Program to wrap up how
