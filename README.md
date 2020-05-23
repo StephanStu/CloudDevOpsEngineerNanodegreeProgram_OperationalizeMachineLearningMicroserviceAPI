@@ -101,10 +101,28 @@ To upload the image to docker,
 `$ ./upload_docker.sh`
 
 Then, in your DockerHub-Account, a new repository will be created.
-![docker_repo](data/docker_repo.png)
-### Configure Kubernetes to Run Locally
 
-### Deploy with Kubernetes and Save Output Logs
+![docker_repo](data/docker_repo.png)
+
+### Configure Kubernetes to Run Locally
+With VirtualBox and minikube installed it is possible to start a local cluster,
+
+`$ minikube start`
+
+After minikube starts, a cluster will be running _locally_. One can check that one cluster is running by typing
+
+`$ kubectl config view`
+
+ This should display at least one cluster with a certificate-`authority` and `server`.
+
+### Deploy with Kubernetes
+Now that a docker image has been uploaded and Kubernetes has been configured such that a cluster is running, one is ready to deploy applications on the _local_ Kubernetes cluster. This involves running containerized application using kubectl, which is a command line interface for interacting with Kubernetes clusters. To launch the containerized application in the Kubernetes Cluster,
+
+`$ run_kubernetes.sh`
+
+Note, that it takes a while until the containerized application is ready. After the status chnages to `RUNNING` the application is waiting for calls at port 8000. The status can be checked by
+
+`$ kubectl get pod`
 
 ### Delete Cluster
 Now, stop the cluster,
@@ -114,3 +132,8 @@ Now, stop the cluster,
 and delete it from your host,
 
 `$ minikube delete`
+
+## Continuous Integration with _CircleCI_
+Finally, the microservice is tested in a continuous fashion (after each commit to the code base) by configuring the repository inside CircleCI. CircleCI updates the badge that is visible at the top of this repository.
+
+![circleci_integration](data/circleci_integration.png)
