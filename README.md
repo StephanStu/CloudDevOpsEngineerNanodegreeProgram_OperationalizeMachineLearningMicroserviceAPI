@@ -1,18 +1,21 @@
-# My Solution for one Project of Udacity's Cloud DevOps Engineer Nanodegree Program - Operationalize a Machine Learning Microservice API
+# Udacity's Cloud DevOps Engineer Nanodegree Program: Operationalize a Machine Learning Microservice API
 
 [![CircleCI](https://circleci.com/gh/StephanStu/CloudDevOpsEngineerNanodegreeProgram_OperationalizeMachineLearningMicroserviceAPI/tree/circleci-project-setup.svg?style=svg)](https://circleci.com/gh/StephanStu/CloudDevOpsEngineerNanodegreeProgram_OperationalizeMachineLearningMicroserviceAPI/tree/circleci-project-setup)
 
+This repository is part of my journey through Udacity's Cloud DevOps Engineer Nanodegree Program. The project was rated as passed in May 2020.
+
 ## Project Overview
 
-In this project, the skills acquired in Udacity's Cloud DevOps Engineer Nanodegree Program are applied to operationalize a Machine Learning Microservice API uisng Docker and Kubernetes.
+In this project, the skills acquired in Udacity's Cloud DevOps Engineer Nanodegree Program are applied to operationalize a Machine Learning Microservice API using Docker and Kubernetes.
 
 <img src="data/docker-logo.png" alt="docker-logo" width="200"/>
 
-A `sklearn` model that has been trained to predict housing prices in Boston according to several features, such as average rooms in a home and data about highway access, teacher-to-pupil ratios, is provided by Udacity. More information about the data, which was initially taken from Kaggle, can be obtained from [the data source site](https://www.kaggle.com/c/boston-housing). This project tests displays the ability to operationalize a Python flask app—in a provided file, `app.py`—that serves out predictions (inference) about housing prices through API calls. This project could be extended to any pre-trained machine learning model, such as those for image recognition and data labeling.
+A `sklearn` model that has been trained to predict housing prices in Boston according to several features, such as average rooms in a home and data about highway access, teacher-to-pupil ratios, is provided by Udacity. More information about the data, which was initially taken from Kaggle, can be obtained from [the data source site](https://www.kaggle.com/c/boston-housing). This project displays the ability to operationalize a Python flask app - in a provided file, `app.py` — that serves out predictions (inference) about housing prices through API calls. This project could be extended to any pre-trained machine learning model, such as those for image recognition and data labeling.
 
 ### Project Tasks
 
 The project goal is to operationalize a working, machine learning microservice using [kubernetes](https://kubernetes.io/), which is an open-source system for automating the management of containerized applications. This includes:
+
 * Test project code using linting
 * Complete a Dockerfile to containerize this application
 * Deploy the containerized application using Docker and make a prediction
@@ -25,16 +28,15 @@ A detailed [project rubric can be found here](https://review.udacity.com/#!/rubr
 
 ## Setting up the Environment
 This section explains how to
+
 * Create a virtualenv and activate it
 * Run `make install` to install the necessary dependencies
 
-It is recommended to run this inside Amazon Web Service' Cloud 9.
-If brew is missing on the machine,
+It is recommended to run this inside Amazon Web Service' Cloud 9. If brew is missing on the machine,
 
 `$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
 
-will install the package management tool. Then, hadolint, minikube and virtualbox can be installed on the host.
-The next thing to do is to check out this repository, i.e.
+will install the package management tool. Then, hadolint, minikube and virtualbox can be installed on the host (MacOS, Linux). The next thing to do is to check out this repository, i.e.
 
 `$ git clone https://github.com/StephanStu/CloudDevOpsEngineerNanodegreeProgram_OperationalizeMachineLearningMicroserviceAPI.git`
 
@@ -56,6 +58,7 @@ will install all necessary packages.
 
 ## Running `app.py`
 There are different ways to run the machine learning microservice. Here, we treat the following ones:
+
 1. Standalone:  `python app.py`
 2. Run in Docker:  `./run_docker.sh`
 3. Run in Kubernetes:  `./run_kubernetes.sh`
@@ -90,11 +93,13 @@ In AWS Cloud 9, when bein "inside the virtual machine" a different version of Li
 ## Run the Application _in Kubernetes_
 Kubernetes can be regarded as a "nano-cloud" for containerized applications. It helps to run and manage applications at scale.
 Kubernetes draws containers from DockerHub, so the steps to run the application inside a cluster are
+
 * Upload the Docker Image
 * Configure Kubernetes to Run Locally
 * Deploy with Kubernetes
 * Delete Cluster
 When the dockerfile builds successfully, the application is ready to be commited to the DockerHub.
+
 ### Upload the Docker Image
 To upload the image to docker,
 
