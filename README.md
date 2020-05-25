@@ -4,7 +4,7 @@
 
 This repository is part of my journey through Udacity's Cloud DevOps Engineer Nanodegree Program. The project was rated as passed in May 2020.
 
-## Project Overview: The _Tech Case_
+## Project Overview
 
 In this project, the skills acquired in Udacity's Cloud DevOps Engineer Nanodegree Program are applied to operationalize a Machine Learning Microservice API using Docker and Kubernetes.
 
