@@ -1,4 +1,4 @@
-# Udacity's Cloud DevOps Engineer Nanodegree Program: Operationalize a Machine Learning Microservice API
+# Udacity's Cloud DevOps Engineer Nanodegree Program: Operationalization of a Machine Learning Microservice API
 
 [![CircleCI](https://circleci.com/gh/StephanStu/CloudDevOpsEngineerNanodegreeProgram_OperationalizeMachineLearningMicroserviceAPI/tree/circleci-project-setup.svg?style=svg)](https://circleci.com/gh/StephanStu/CloudDevOpsEngineerNanodegreeProgram_OperationalizeMachineLearningMicroserviceAPI/tree/circleci-project-setup)
 
